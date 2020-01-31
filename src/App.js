@@ -6,8 +6,10 @@ import TodoListItems from "./components/Todos/TodoListItems/TodoListItems";
 import { Box } from "@material-ui/core";
 
 function App() {
+  let storedTaskLists = JSON.parse(localStorage.getItem("taskLists"));
+
   const [singleTask, setSingleTask] = useState("");
-  const [tasklists, setTasksLists] = useState([]);
+  const [tasklists, setTasksLists] = useState(storedTaskLists || []);
 
   const handleToggleHandler = id => () => {
     setTasksLists(prevState => {
